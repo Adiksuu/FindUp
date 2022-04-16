@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find Up</title>
+
+    <link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+
+	<link rel="shortcut icon" href="Images/adiksuu2.png" type="image/x-icon">
+
+</head>
+<body>
+    
+<div class="scrollToTop-btn">
+			<i class="fas fa-angle-up"></i>
+		</div>
+
+<header class="l-header">
+			<nav class="nav bd-grid">
+				<div>
+					<a href="#" class="nav__logo">Find Up</a>
+				</div>
+
+				<div class="nav__menu" id="nav-menu">
+					<ul class="nav__list">
+						<li class="nav__item">
+							<a href="#home" class="nav__link active">Home</a>
+						</li>
+						<li class="nav__item">
+							<a href="#info" class="nav__link">Info</a>
+						</li>
+						<!-- <li class="nav__item">
+							<a href="#skills" class="nav__link">Skills</a>
+						</li>
+						<li class="nav__item">
+							<a href="#projects" class="nav__link">Projects</a>
+						</li> -->
+					</ul>
+				</div>
+
+				<div class="nav__toggle" id="nav-toggle">
+					<i class="fas fa-bars"></i>
+				</div>
+			</nav>
+		</header>
+
+        <main class="l-main">
+
+    <section class="home bd-grid" id="home">
+        <div class="home__data">
+            <h1 class="home__title">Search a <span class="home__title-color">Minecraft</span><br>server
+            </h1>
+        </div>
+		
+        <!-- <div class="home__social">
+			
+		</div> -->
+		
+		<input type="text" class="searchme" id="TextInp">
+		<button type="button" id="myButton">Submit</button>
+
+        <!-- <div class="home__img">
+            <img src="Images/game-console.png">
+        </div> -->
+
+        
+    </section>
+
+	<section class="blog" id="info">
+    <div class="title">
+    </div>
+    <div class="content">
+
+
+        <!--container---------------->
+        <div class="blog-container server-status">
+
+
+            <!--box-3------------->
+            <div class="blog-box">
+            
+                <!--img---->
+                <div class="blog-img">
+                    <img alt="blog" src="Images/search.png">
+                </div>
+                <!--text--->
+                <div class="blog-text">
+					<a class="blog-title server-st">NaN</a>
+					<span class="server-ip">IP: NaN</span>
+                    <p>Online / offline server status</p>
+                </div>
+            
+            </div>
+            <!--box-1------------->
+            <div class="blog-box">
+
+                <!--img---->
+                <div class="blog-img">
+                    <img alt="blog" src="Images/group.png">
+                </div>
+                <!--text--->
+                <div class="blog-text">
+					<a class="blog-title server-online">NaN</a>
+					<span class="server-ip2">IP: NaN</span>
+                    <p>The number of active members</p>
+                </div>
+
+            </div>
+
+            <!--box-1------------->
+            <div class="blog-box">
+
+                <!--img---->
+                <div class="blog-img">
+                    <img alt="blog" src="Images/lock-padlock-symbol-for-security-interface.png">
+                </div>
+                <!--text--->
+                <div class="blog-text">
+					<a class="blog-title server-max">NaN</a>
+					<span class="server-ip3">IP: NaN</span>
+                    <p>Number of slots on the server</p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+    <!-- <section class="about section" id="about">
+        <h2 class="section-title">About Game</h2>
+    
+        <div class="about__container bd-grid">
+            <div class="about__img">
+                <img src="Images/adiksuu.png" alt="CodeAdiksuu">
+            </div>
+    
+            <div>
+                <h2 class="about__subtitle">My Official Game!</h2>
+                <p class="about__text">Farmer Game Simulator is my game of picking carrots and then selling them, the game has many innovative features so you
+                don't get bored! <br> <br> If you have any interesting suggestions for the game, please contact me!
+                </p>
+            </div>
+        </div>
+    </section> -->
+
+    <footer class="footer">
+			<p class="footer__title">Adiksuu</p>
+
+			<div class="footer__social">
+				<a href="https://be.net/Adiksuu" class="footer__icon"
+					><i class="fab fa-behance"></i
+				></a>
+				<a href="https://patreon.com/adiksuu" class="footer__icon"
+					><i class="fab fa-patreon"></i
+				></a>
+				<a href="https://github.com/Adiksuu" class="footer__icon"
+					><i class="fab fa-github"></i
+				></a>
+			</div>
+
+			<p>&#169; 2022 copyright <span>CodeAdiksuu</span>.</p>
+		</footer>
+
+
+        <script src="script.js"></script>
+		<script src="https://mcapi.us/scripts/minecraft.js"></script>
+		<script>
+			document.getElementById("myButton").onclick = function(){
+				var IP = document.getElementById("TextInp").value;
+				MinecraftAPI.getServerStatus(IP, {
+	   port: 25565
+	 }, function (err, status) {
+	   if (err) {
+		 document.querySelector('.server-st').innerHTML = 'Server Not Found';
+		 document.querySelector('.server-online').innerHTML = 'Server Not Found';
+		 document.querySelector('.server-max').innerHTML = 'Server Not Found';
+	   }
+	   
+	   document.querySelector('.server-ip').innerHTML = `IP: ${IP}`;
+	   document.querySelector('.server-ip2').innerHTML = `IP: ${IP}`;
+	   document.querySelector('.server-ip3').innerHTML = `IP: ${IP}`;
+	   document.querySelector('.server-online').innerHTML = status.players.now;
+	   document.querySelector('.server-max').innerHTML = status.players.max;
+	   document.querySelector('.server-st').innerHTML = status.online ? 'Online' : 'Offline';
+	 });
+			}
+		</script>
+
+</body>
+</html>
