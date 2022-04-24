@@ -242,6 +242,13 @@ nav ul li a:hover {
 
 /* MAIN SECTION STYLING */
 
+.l-main{
+	background: url(Images/Screenshot.png) no-repeat;
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
 .home {
 	height: calc(100vh - 3rem);
 	row-gap: 1rem;
@@ -255,6 +262,7 @@ nav ul li a:hover {
 	font-size: var(--big-font-size);
 	margin-bottom: var(--mb-5);
     text-align: center;
+	text-shadow: 3px 4px 12px rgb(0, 0, 0);
 }
 
 .home__title-color {
@@ -551,6 +559,7 @@ nav ul li a:hover {
 		grid-template-rows: repeat(2, 1fr);
 		column-gap: 2rem;
 	}
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -561,6 +570,7 @@ nav ul li a:hover {
 	.home__img {
 		right: 10%;
 	}
+
 }
 
 /* CUSTOM SCROLLBAR STYLING */
@@ -726,18 +736,6 @@ nav ul li a:hover {
     color: var(--black-color);
 }
 
-.searchme {
-	border-radius: 15px;
-	height: 30px;
-	width: auto;
-	border: 2px solid var(--first-color);
-	background-color: var(--white-color);
-	outline: none;
-	font-size: 16px;
-	color: var(--first-color);
-	padding: 15px;
-	text-align: center;
-}
 
 
 #blog{
@@ -862,11 +860,13 @@ nav ul li a:hover {
   .blog-box{
       width: 300px;
   }
+  
 } 
 @media(max-width:1100px){
   .blog-box{
       width:90%;
   }
+  
 }
 
 @media(max-width:550px){
@@ -878,26 +878,57 @@ nav ul li a:hover {
   #blog{
       padding:20px;
   }
+
 }
 
-#myButton {
-	background-color: var(--first-color);
-	border-radius: 15px;
-	border: none;
-	cursor: pointer;
-	width: 250px;
-	height: 75px;
-	font-size: 19px;
-	text-transform: uppercase;
-	display: flex;
-	margin: auto;
+.inputs {
+	position: relative;
 	text-align: center;
 	align-items: center;
 	justify-content: center;
-	transition: .3s linear;
 }
-#myButton:hover {
-	background-color: var(--white-color);
+
+.searchme {
+	font-size: 17px;
+	background: var(--white-color);
+	width: 180px;
+	height: 50px;
 	border: 2px solid var(--first-color);
 	color: var(--first-color);
+	outline: none;
+	padding: 0 25px;
+	border-radius: 25px 0 0 25px;
+}
+
+#myButton {
+	position: relative;
+	display: inline-block;
+	font-size: 20px;
+	box-sizing: border-box;
+	transition: .5s;
+}
+
+.TextInp {
+	cursor: pointer;
+	position: relative;
+	left: -5px;
+	top: 1px;
+	border-radius: 0 25px 25px 0;
+	width: 120px;
+	height: 50px;
+	border: none;
+	outline: none;
+	background: var(--first-color);
+	transition: .3s linear;
+}
+
+.TextInp:hover {
+	background: var(--white-color);
+	color: var(--first-color);
+}
+
+@media screen and (min-width: 768px) {
+	.searchme {
+		width: 300px;
+	}
 }
